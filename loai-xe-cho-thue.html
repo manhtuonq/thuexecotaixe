@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>LOẠI XE CHO THUÊ - XE VIP CÓ TÀI XẾ</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#F5A623;--cyan:#00BCD4;--cyan-dark:#0097A7;
+  --black:#111;--black2:#1a1a1a;--white:#fff;
+  --light:#F5F5F5;--gray:#555;--gray2:#999;--border:#E0E0E0;
+  --font-d:'Oswald',sans-serif;--font-b:'Be Vietnam Pro',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--white);color:var(--black);line-height:1.6;overflow-x:hidden}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--black);border-bottom:2px solid var(--gold)}
+.hdr{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .brand{font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--gold);letter-spacing:1px;display:block}
+.logo .tag{font-size:10px;color:#aaa;letter-spacing:.5px;display:block}
+nav{display:flex;align-items:center;gap:2px}
+.ni{font-family:var(--font-d);font-size:13px;font-weight:500;color:var(--white);text-decoration:none;padding:8px 12px;border-radius:4px;transition:.2s;white-space:nowrap}
+.ni:hover,.ni.active{color:var(--gold);background:rgba(245,166,35,.1)}
+.nd{position:relative}
+.nd:hover .dm{display:block}
+.dm{display:none;position:absolute;top:100%;left:0;background:var(--black2);border:1px solid var(--gold);border-top:none;min-width:230px;border-radius:0 0 8px 8px;overflow:hidden;z-index:100}
+.dm a{display:block;padding:9px 16px;font-size:13px;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05);transition:.15s}
+.dm a:hover{background:rgba(245,166,35,.12);color:var(--gold)}
+.hbtn{display:flex;align-items:center;gap:8px;background:var(--gold);color:var(--black)!important;font-family:var(--font-d);font-weight:700;font-size:13px;padding:8px 16px;border-radius:6px;text-decoration:none;transition:.2s;white-space:nowrap}
+.hbtn:hover{background:#FFB74D}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.ham span{display:block;width:24px;height:2px;background:var(--gold)}
+
+/* MOBILE NAV — drawer trượt từ trái */
+.mnav-overlay{display:none;position:fixed;inset:0;top:64px;background:rgba(0,0,0,.45);z-index:998;opacity:0;transition:opacity .3s}
+.mnav-overlay.open{display:block;opacity:1}
+.mnav-x{position:fixed;top:76px;right:18px;z-index:1000;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;padding:4px;line-height:1;display:none}
+.mnav-overlay.open .mnav-x{display:block}
+.mnav{position:fixed;top:64px;left:0;bottom:0;width:60%;max-width:280px;background:#fff;z-index:999;overflow-y:auto;transform:translateX(-100%);transition:transform .3s ease;box-shadow:4px 0 24px rgba(0,0,0,.12)}
+.mnav.open{transform:translateX(0)}
+.mnav-body{padding:0}
+.mnav-item{display:flex;align-items:center;justify-content:space-between;width:100%;font-family:var(--font-d);font-size:14px;font-weight:600;color:#333;text-transform:uppercase;text-decoration:none;padding:16px 20px;border:none;border-bottom:1px solid #eee;background:#fff;cursor:pointer;text-align:left;letter-spacing:.5px;transition:.15s}
+a.mnav-item:hover{color:var(--gold)}
+.mnav-toggle span{flex:1}
+.mnav-chev{font-size:11px;color:#888;transition:transform .25s;flex-shrink:0;margin-left:8px}
+.mnav-drop.open .mnav-chev{transform:rotate(180deg)}
+.mnav-sub{display:none;background:#f5f5f5;border-bottom:1px solid #eee}
+.mnav-drop.open .mnav-sub{display:block}
+.mnav-sub a{display:block;padding:13px 20px 13px 28px;font-family:var(--font-b);font-size:14px;font-weight:400;color:#444;text-decoration:none;border-bottom:1px solid #e8e8e8;text-transform:none;transition:.15s}
+.mnav-sub a:last-child{border-bottom:none}
+.mnav-sub a:hover{color:var(--gold);background:#ececec}
+.mnav-item.active{color:var(--gold)}
+
+/* HERO */
+.hero{margin-top:64px;position:relative;min-height:520px;
+  background:url('https://xevipcotaixe.com/wp-content/uploads/2025/07/Canival-2025-1024x683.png') center/cover no-repeat;
+  display:flex;align-items:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.52)}
+.hero-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:48px 20px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.hero-l{flex:1;max-width:560px}
+.hero-l h1{font-family:var(--font-d);font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);text-transform:uppercase;color:var(--cyan);letter-spacing:2px;line-height:1.2;margin-bottom:10px}
+.hero-l h2{font-family:var(--font-d);font-weight:700;font-size:clamp(1.1rem,2.5vw,1.6rem);text-transform:uppercase;color:var(--gold);letter-spacing:1px;margin-bottom:14px}
+.hero-l p{font-size:14px;color:#ddd;letter-spacing:3px;text-transform:uppercase;font-weight:500}
+
+/* BOOKING FORM */
+.hform{width:380px;flex-shrink:0;background:rgba(255,255,255,.97);border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.fhdr{background:var(--cyan);padding:16px 24px;text-align:center;font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--white);letter-spacing:1px;text-transform:uppercase}
+.fbdy{padding:20px 24px}
+.ff{margin-bottom:14px}
+.ff label{display:block;font-size:13px;font-weight:600;color:var(--black);margin-bottom:6px}
+.iw{position:relative}
+.iw i.icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--cyan);font-size:14px;pointer-events:none}
+.iw input,.iw select{width:100%;padding:11px 12px 11px 36px;border:1px solid var(--border);border-radius:6px;font-family:var(--font-b);font-size:14px;color:var(--black);background:#fff;outline:none;transition:.2s;-webkit-appearance:none;appearance:none}
+.iw input:focus,.iw select:focus{border-color:var(--cyan)}
+.iw input::placeholder{color:#aaa}
+.iw i.arr{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--gray2);pointer-events:none}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.frow .ff{margin-bottom:0}
+.bvp{width:100%;margin-top:14px;padding:14px;background:var(--cyan);color:var(--white);font-family:var(--font-d);font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:.2s}
+.bvp:hover{background:var(--cyan-dark);transform:translateY(-1px)}
+
+/* SECTIONS */
+.sec{padding:64px 20px}.sec.bg-lt{background:var(--light)}
+.ctr{max-width:1280px;margin:0 auto}
+.sh{margin-bottom:36px}
+.st{font-family:var(--font-d);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;text-transform:uppercase;color:var(--black);letter-spacing:1px;margin-bottom:8px}
+.st .ac{color:var(--cyan)}
+.sdiv{width:48px;height:3px;background:var(--gold);border-radius:2px}
+
+/* DEST */
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.dc{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;text-decoration:none;display:block;transition:.25s;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.dc:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.14);border-color:var(--cyan)}
+.dimg{position:relative;height:155px;overflow:hidden}
+.dimg img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.dc:hover .dimg img{transform:scale(1.06)}
+.dbadge{position:absolute;bottom:8px;right:8px;background:var(--gold);color:var(--white);font-family:var(--font-d);font-size:12px;font-weight:700;padding:3px 10px;border-radius:4px}
+.dbdy{padding:14px 16px}
+.droute{font-family:var(--font-d);font-size:14px;font-weight:600;color:var(--black);margin-bottom:5px;line-height:1.3}
+.dprice{font-size:13px;color:var(--gray)}
+.dprice span{color:var(--gold);font-weight:700}
+.dmore{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;color:var(--cyan);text-transform:uppercase;letter-spacing:.5px}
+
+/* SERVICES */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:20px}
+.sc{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:28px 18px;text-align:center;transition:.2s;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.sc:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,188,212,.12)}
+.sico{font-size:32px;color:var(--cyan);margin-bottom:12px;display:block}
+.sname{font-family:var(--font-d);font-size:15px;font-weight:600;color:var(--black);margin-bottom:6px}
+.sdesc{font-size:13px;color:var(--gray);line-height:1.5}
+
+/* TESTIMONIALS */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.tc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.tstars{color:var(--gold);font-size:13px;margin-bottom:12px}
+.ttxt{font-size:14px;color:var(--gray);line-height:1.7;font-style:italic}
+.tau{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
+.tav{width:40px;height:40px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:16px;color:var(--white);flex-shrink:0}
+.tname{font-weight:700;font-size:14px;color:var(--black)}
+.tlbl{font-size:12px;color:var(--gray2)}
+
+/* NEWS */
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
+.nc{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;text-decoration:none;transition:.2s;box-shadow:0 2px 8px rgba(0,0,0,.06);display:block}
+.nc:hover{box-shadow:0 8px 24px rgba(0,0,0,.12);transform:translateY(-3px)}
+.ndate{background:var(--gold);color:var(--white);font-family:var(--font-d);font-size:11px;font-weight:700;padding:4px 12px;display:inline-block;letter-spacing:1px}
+.nbdy{padding:14px 18px 18px}
+.ntitle{font-family:var(--font-d);font-size:14px;font-weight:600;color:var(--black);line-height:1.4;margin-bottom:7px}
+.nexc{font-size:13px;color:var(--gray);line-height:1.6}
+.nmore{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.5px}
+
+/* CONTACT STRIP */
+.cstrip{background:var(--gold);padding:24px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px 40px}
+.cstrip p{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--white)}
+.cstrip a{display:inline-flex;align-items:center;gap:8px;background:var(--black);color:var(--white);font-family:var(--font-d);font-size:20px;font-weight:700;padding:10px 28px;border-radius:8px;text-decoration:none;transition:.2s}
+.cstrip a:hover{background:#222}
+
+/* FOOTER */
+footer{background:var(--black);color:var(--white)}
+.ft-top{max-width:1280px;margin:0 auto;padding:48px 20px 40px;display:grid;grid-template-columns:280px 1fr 1fr;gap:40px}
+.fbrand{}
+.flogo-name{font-family:var(--font-d);font-size:30px;font-weight:700;line-height:1;margin-bottom:4px}
+.flogo-name .v{color:var(--gold)}.flogo-name .c{color:var(--cyan)}
+.flogo-sub{font-size:13px;color:var(--cyan);letter-spacing:1px;margin-bottom:18px}
+.faddr{list-style:none}
+.faddr li{font-size:13px;color:#ccc;margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.faddr li i{color:var(--cyan);margin-top:3px;flex-shrink:0}
+.fhl{background:var(--gold);color:var(--black);font-size:13px;font-weight:700;padding:5px 10px;border-radius:4px;display:inline-block;margin:8px 0;font-style:italic}
+.fhot{display:flex;align-items:center;gap:10px;margin:10px 0}
+.fhot i{color:var(--white)}
+.fhot a{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--gold);text-decoration:none}
+.femail{display:flex;align-items:center;gap:10px;font-size:13px;color:#ccc}
+.fbadges{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.fbadges img{height:44px}
+.fwcol{}
+.fwtitle{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--white);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #333}
+.fmap{width:100%;height:220px;border:none;border-radius:8px}
+.ffan{background:var(--white);border-radius:8px;overflow:hidden}
+.ffan-in{padding:14px 16px}
+.ffan-hdr{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #eee}
+.ffan-av{width:50px;height:50px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.ffan-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.ffan-name{font-size:14px;font-weight:700;color:#000;line-height:1.3}
+.ffan-flw{font-size:12px;color:#666}
+.ffan-fb{margin-left:auto;color:#1877F2;font-size:20px}
+.ffan-desc{font-size:12px;color:#444;line-height:1.6;margin-bottom:8px}
+.ffan-tags{font-size:12px;color:#555;margin-bottom:12px}
+.ffan-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#1877F2;color:#fff;font-size:14px;font-weight:600;padding:9px;border-radius:6px;text-decoration:none}
+.ffan-btn:hover{background:#1565C0}
+
+/* FOOTER LINKS */
+.fl{border-top:1px solid #2a2a2a}
+.fl-in{max-width:1280px;margin:0 auto;padding:36px 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.fcol h4{font-family:var(--font-d);font-size:13px;font-weight:700;color:var(--white);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #2a2a2a}
+.fcol ul{list-style:none}
+.fcol ul li{margin-bottom:9px;display:flex;align-items:flex-start;gap:8px}
+.fcol ul li i{color:var(--gold);font-size:10px;margin-top:5px;flex-shrink:0}
+.fcol ul li a{font-size:13px;color:#ccc;text-decoration:none;line-height:1.4;transition:.2s}
+.fcol ul li a:hover{color:var(--gold)}
+
+/* FOOTER BOTTOM */
+.fbot{background:#0d0d0d;border-top:1px solid #2a2a2a;padding:14px 20px;text-align:center}
+.fbot p{font-size:12px;color:#888;margin-bottom:4px}
+.fbot p strong{color:var(--white)}
+.fbot .stats{font-size:12px;color:#666}
+.fbot .stats strong{color:var(--gold)}
+
+/* FLOATING */
+.flt{position:fixed;bottom:24px;right:20px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.flt-hot{display:flex;align-items:center;gap:10px;background:var(--gold);color:var(--black);font-family:var(--font-d);font-size:14px;font-weight:700;padding:11px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(245,166,35,.5);animation:pg 2s infinite;letter-spacing:.5px}
+.flt-hot:hover{background:#FFB74D}
+.flt-z{width:46px;height:46px;background:#0068FF;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 4px 14px rgba(0,104,255,.4)}
+.flt-cu{display:flex;align-items:center;gap:8px;background:var(--gold);color:var(--black);font-size:13px;font-weight:700;padding:10px 16px;border-radius:50px;text-decoration:none;box-shadow:0 4px 16px rgba(245,166,35,.4)}
+@keyframes pg{0%,100%{box-shadow:0 4px 20px rgba(245,166,35,.5)}50%{box-shadow:0 4px 28px rgba(245,166,35,.8)}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .ft-top{grid-template-columns:1fr 1fr}
+  .ft-top .fbrand{grid-column:1/-1}
+  .fl-in{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  nav{display:none}.ham{display:flex}
+  .hero-in{flex-direction:column;align-items:flex-start}
+  .hform{width:100%;max-width:460px}
+  .ft-top{grid-template-columns:1fr}
+  .sgrid,.dgrid,.tgrid,.ngrid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .result-cards-grid{grid-template-columns:repeat(2,1fr)!important;gap:10px!important}
+}
+@media(max-width:600px){
+  .fl-in{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .flt-hot span{display:none}
+  .flt-hot{padding:12px;border-radius:50%}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <a href="index.html" class="logo">
+      <div>
+        <span class="brand">XE VIP CÓ TÀI XẾ</span>
+        <span class="tag">XEVIPCOTAIXE.COM</span>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html" class="ni">TRANG CHỦ</a>
+      <div class="nd">
+        <a href="loai-xe-cho-thue.html" class="ni active">LOẠI XE CHO THUÊ <i class="fa-solid fa-chevron-down" style="font-size:9px"></i></a>
+        <div class="dm">
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-car" style="margin-right:8px;color:var(--cyan)"></i>Thuê xe 4 chỗ</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-van-shuttle" style="margin-right:8px;color:var(--cyan)"></i>Thuê xe 7 chỗ</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-star" style="margin-right:8px;color:var(--gold)"></i>Thuê xe 7 Chỗ Ghế VIP</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-crown" style="margin-right:8px;color:var(--gold)"></i>Thuê xe Limousine 9 Chỗ</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-crown" style="margin-right:8px;color:var(--gold)"></i>Thuê xe Limousine 11 chỗ</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-bus-simple" style="margin-right:8px;color:var(--cyan)"></i>Thuê xe 16 chỗ</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-bus-simple" style="margin-right:8px;color:var(--cyan)"></i>Thuê xe 18 chỗ</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-bus" style="margin-right:8px;color:var(--cyan)"></i>Thuê xe 29 chỗ</a>
+          <a href="loai-xe-cho-thue.html"><i class="fa-solid fa-bus" style="margin-right:8px;color:var(--cyan)"></i>Thuê xe 45 chỗ</a>
+        </div>
+      </div>
+      <a href="dia-diem-den.html" class="ni">ĐIỂM ĐẾN PHỔ BIẾN</a>
+      <a href="thue-xe-lien-tinh.html" class="ni">THUÊ XE LIÊN TỈNH</a>
+      <a href="tel:0868558642" class="hbtn"><i class="fa-solid fa-phone"></i> 0868.558.642</a>
+    </nav>
+    <button class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mnav-overlay" id="mnavOverlay" onclick="closeMenu()">
+  <button type="button" class="mnav-x" onclick="closeMenu()" aria-label="Đóng menu"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<div class="mnav" id="mnav">
+  <div class="mnav-body">
+    <a href="index.html" class="mnav-item">TRANG CHỦ</a>
+    <div class="mnav-drop open">
+      <button type="button" class="mnav-item mnav-toggle active" onclick="toggleMnavDrop(event)">
+        <span>LOẠI XE CHO THUÊ</span>
+        <i class="fa-solid fa-chevron-down mnav-chev"></i>
+      </button>
+      <div class="mnav-sub">
+        <a href="loai-xe-cho-thue.html">Thuê xe 4 chỗ</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe 7 chỗ</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe 7 Chỗ Ghế VIP</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe Limousine 9 Chỗ</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe Limousine 11 chỗ</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe 16 chỗ</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe 18 chỗ</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe 29 chỗ</a>
+        <a href="loai-xe-cho-thue.html">Thuê xe 45 chỗ</a>
+      </div>
+    </div>
+    <a href="dia-diem-den.html" class="mnav-item">ĐIỂM ĐẾN PHỔ BIẾN</a>
+    <a href="thue-xe-lien-tinh.html" class="mnav-item">THUÊ XE LIÊN TỈNH</a>
+  </div>
+</div>
+
+
+<main>
+    <!-- paste vào trong thẻ <main> của file gốc -->
+
+<section style="padding:48px 20px;background:#f5f5f5;min-height:calc(100vh - 64px)">
+    <div style="max-width:1280px;margin:0 auto">
+  
+      <!-- Tiêu đề trang -->
+      <div style="margin-bottom:32px">
+      </p>
+      </div>
+  
+      <!-- 2 cột layout -->
+      <div style="display:grid;grid-template-columns:400px 1fr;gap:28px;align-items:start">
+  
+        <!-- CỘT TRÁI: Form thông tin chuyến -->
+        <div style="background:#fff;border:1px solid #e0e0e0;border-top:3px solid #F5A623;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)">
+  
+          <!-- Header form -->
+          <div style="padding:18px 22px 14px;border-bottom:1px solid #f0f0f0">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:36px;height:36px;background:#F5A623;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-car" style="color:#111;font-size:16px"></i>
+              </div>
+              <div>
+                <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:#111;letter-spacing:1px;text-transform:uppercase">THÔNG TIN CHUYẾN</div>
+                <div style="font-size:11px;color:#999;margin-top:1px">Điền đầy đủ để xem giá chính xác</div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Body form -->
+          <div style="padding:20px 22px 24px">
+  
+            <!-- Điểm đón -->
+            <div style="margin-bottom:16px">
+              <label style="display:block;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px">
+                <i class="fa-solid fa-circle-dot" style="margin-right:5px;font-size:10px;color:#F5A623"></i>Điểm đón
+              </label>
+              <div style="position:relative">
+                <i class="fa-solid fa-location-dot" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#F5A623;font-size:13px;pointer-events:none"></i>
+                <input type="text" id="pickup" placeholder="Nhập điểm đón"
+                  style="width:100%;padding:11px 12px 11px 34px;background:#fafafa;border:1px solid #ddd;border-radius:7px;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:#111;outline:none;transition:border .2s;box-sizing:border-box"
+                  onfocus="this.style.borderColor='#F5A623';this.style.background='#fff'" onblur="this.style.borderColor='#ddd';this.style.background='#fafafa'">
+              </div>
+            </div>
+  
+            <!-- + Thêm điểm dừng -->
+            <div style="margin-bottom:16px">
+              <button onclick="toggleStop()" id="btnStop"
+                style="background:none;border:none;cursor:pointer;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:700;color:#F5A623;text-decoration:underline;text-underline-offset:3px;padding:0;letter-spacing:.3px">
+                + THÊM ĐIỂM DỪNG (NẾU CÓ)
+              </button>
+              <div id="stopWrap" style="display:none;margin-top:10px">
+                <div style="position:relative">
+                  <i class="fa-solid fa-location-crosshairs" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#bbb;font-size:13px;pointer-events:none"></i>
+                  <input type="text" placeholder="Nhập điểm dừng trung gian"
+                    style="width:100%;padding:11px 12px 11px 34px;background:#fafafa;border:1px solid #ddd;border-radius:7px;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:#111;outline:none;transition:border .2s;box-sizing:border-box"
+                    onfocus="this.style.borderColor='#F5A623';this.style.background='#fff'" onblur="this.style.borderColor='#ddd';this.style.background='#fafafa'">
+                </div>
+              </div>
+            </div>
+  
+            <!-- Điểm đến -->
+            <div style="margin-bottom:16px">
+              <label style="display:block;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px">
+                <i class="fa-solid fa-flag-checkered" style="margin-right:5px;font-size:10px;color:#F5A623"></i>Điểm đến
+              </label>
+              <div style="position:relative">
+                <i class="fa-solid fa-location-dot" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#F5A623;font-size:13px;pointer-events:none"></i>
+                <input type="text" id="dropoff" placeholder="Nhập điểm cần đến"
+                  style="width:100%;padding:11px 12px 11px 34px;background:#fafafa;border:1px solid #ddd;border-radius:7px;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:#111;outline:none;transition:border .2s;box-sizing:border-box"
+                  onfocus="this.style.borderColor='#F5A623';this.style.background='#fff'" onblur="this.style.borderColor='#ddd';this.style.background='#fafafa'">
+              </div>
+            </div>
+  
+            <!-- Divider -->
+            <div style="border-top:1px solid #f0f0f0;margin:18px 0"></div>
+  
+            <!-- Dịch vụ + Loại xe (2 cột) -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+              <div>
+                <label style="display:block;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px">
+                  <i class="fa-solid fa-list-check" style="margin-right:5px;font-size:10px;color:#F5A623"></i>Dịch vụ
+                </label>
+                <div style="position:relative">
+                  <i class="fa-solid fa-route" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#F5A623;font-size:12px;pointer-events:none"></i>
+                  <select style="width:100%;padding:11px 28px 11px 32px;background:#fafafa;border:1px solid #ddd;border-radius:7px;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:#111;outline:none;-webkit-appearance:none;appearance:none;transition:border .2s;box-sizing:border-box"
+                    onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#ddd'">
+                    <option>Một chiều</option>
+                    <option>City Tour</option>
+                    <option>Đi về trong ngày</option>
+                    <option>Bao xe nhiều ngày</option>
+                    <option>Đưa đón</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down" style="position:absolute;right:9px;top:50%;transform:translateY(-50%);font-size:9px;color:#aaa;pointer-events:none"></i>
+                </div>
+              </div>
+              <div>
+                <label style="display:block;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px">
+                  <i class="fa-solid fa-car" style="margin-right:5px;font-size:10px;color:#F5A623"></i>Loại xe
+                </label>
+                <div style="position:relative">
+                  <i class="fa-solid fa-car-side" style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#F5A623;font-size:12px;pointer-events:none"></i>
+                  <select style="width:100%;padding:11px 28px 11px 32px;background:#fafafa;border:1px solid #ddd;border-radius:7px;font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:#111;outline:none;-webkit-appearance:none;appearance:none;transition:border .2s;box-sizing:border-box"
+                    onfocus="this.style.borderColor='#F5A623'" onblur="this.style.borderColor='#ddd'">
+                    <option>4 chỗ Sedan</option>
+                    <option>7 chỗ Chuẩn</option>
+                    <option>7 chỗ Ghế VIP</option>
+                    <option>Limousine 9 chỗ</option>
+                    <option>Limousine 11 chỗ</option>
+                    <option>16 chỗ</option>
+                    <option>29 chỗ</option>
+                    <option>45 chỗ</option>
+                  </select>
+                  <i class="fa-solid fa-chevron-down" style="position:absolute;right:9px;top:50%;transform:translateY(-50%);font-size:9px;color:#aaa;pointer-events:none"></i>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Ngày đi -->
+            <div style="margin-bottom:20px">
+              <label style="display:block;font-family:'Be Vietnam Pro',sans-serif;font-size:11px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px">
+                <i class="fa-solid fa-calendar-days" style="margin-right:5px;font-size:10px;color:#F5A623"></i>Ngày đi
+              </label>
+              <div style="position:relative">
+                <i class="fa-solid fa-calendar" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#F5A623;font-size:13px;pointer-events:none"></i>
+                <input type="date" id="tripDate"
+                  style="width:100%;padding:11px 12px 11px 34px;background:#fafafa;border:1px solid #ddd;border-radius:7px;font-family:'Be Vietnam Pro',sans-serif;font-size:13px;color:#111;outline:none;transition:border .2s;box-sizing:border-box"
+                  onfocus="this.style.borderColor='#F5A623';this.style.background='#fff'" onblur="this.style.borderColor='#ddd';this.style.background='#fafafa'">
+              </div>
+            </div>
+  
+            <!-- Nút tìm -->
+            <button onclick="doSearch()"
+              style="width:100%;padding:14px;background:#F5A623;color:#111;font-family:'Oswald',sans-serif;font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:10px"
+              onmouseover="this.style.background='#e8950f'" onmouseout="this.style.background='#F5A623'">
+              <i class="fa-solid fa-magnifying-glass"></i> TÌM XE & XEM GIÁ
+            </button>
+  
+            <!-- Lưu ý -->
+            <div style="margin-top:14px;padding:12px 14px;background:#fffbf0;border:1px solid #fde9a8;border-left:3px solid #F5A623;border-radius:6px;display:flex;align-items:flex-start;gap:10px">
+              <i class="fa-solid fa-thumbs-up" style="color:#F5A623;font-size:15px;margin-top:2px;flex-shrink:0"></i>
+              <div style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:#555;line-height:1.6">
+                <strong style="color:#c47f00">Lưu ý:</strong> Chọn đầy đủ <em>Ngày đi, Dịch vụ, Loại xe</em> để có giá chính xác.
+                Xem giá trong <strong style="color:#c47f00">"Kết quả tìm thấy"</strong>.
+              </div>
+            </div>
+  
+          </div>
+        </div><!-- end left col -->
+  
+        <!-- CỘT PHẢI: Kết quả + Bản đồ -->
+        <div style="display:flex;flex-direction:column;gap:24px">
+  
+          <!-- Kết quả tìm kiếm -->
+          <div style="background:#fff;border:1px solid #e0e0e0;border-top:3px solid #F5A623;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)">
+            <div style="padding:18px 22px 14px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div style="width:36px;height:36px;background:#F5A623;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <i class="fa-solid fa-list" style="color:#111;font-size:15px"></i>
+                </div>
+                <div>
+                  <div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:#111;letter-spacing:1px;text-transform:uppercase">KẾT QUẢ TÌM THẤY</div>
+                  <div id="resultCount" style="font-size:11px;color:#999;margin-top:1px">Nhập thông tin bên trái để tìm xe</div>
+                </div>
+              </div>
+              <div id="resultBadge" style="display:none;background:#F5A623;color:#111;font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px">
+                MỚI CẬP NHẬT
+              </div>
+            </div>
+  
+            <!-- Danh sách kết quả -->
+            <div id="resultList" style="padding:20px 22px">
+              <div id="emptyState" style="text-align:center;padding:40px 20px">
+                <div style="width:60px;height:60px;background:#f5f5f5;border:1px solid #e8e8e8;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+                  <i class="fa-solid fa-car-side" style="color:#ccc;font-size:24px"></i>
+                </div>
+                <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:14px;color:#999;margin-bottom:6px">Chưa có kết quả</p>
+                <p style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:#bbb">Nhập điểm đón, điểm đến và nhấn <strong style="color:#F5A623">Tìm xe & Xem giá</strong></p>
+              </div>
+              <div id="resultCards" class="result-cards-grid" style="display:none;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px"></div>
+            </div>
+          </div>
+  
+          <!-- Bản đồ -->
+          <div style="background:#fff;border:1px solid #e0e0e0;border-top:3px solid #F5A623;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)">
+            <div style="padding:14px 22px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:10px">
+              <div style="width:32px;height:32px;background:#F5A623;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <i class="fa-solid fa-map-location-dot" style="color:#111;font-size:14px"></i>
+              </div>
+              <div style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#111;letter-spacing:1px;text-transform:uppercase">BẢN ĐỒ TUYẾN ĐƯỜNG</div>
+            </div>
+            <div style="position:relative">
+              <iframe id="mapFrame"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2997.8914629591645!2d106.7191516641041!3d10.827757497098647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529e7360a9d75%3A0x95b8cff777c1c7ce!2zVGh1w6ogeGUgcuG6uyBMacOqbiBU4buJbmg!5e0!3m2!1svi!2sus!4v1687521920078!5m2!1svi!2sus"
+                style="width:100%;height:320px;border:none;display:block"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+              <div style="position:absolute;top:12px;left:12px;background:rgba(17,17,17,.82);border:1px solid #F5A623;border-radius:6px;padding:6px 12px;display:flex;align-items:center;gap:8px">
+                <i class="fa-solid fa-route" style="color:#F5A623;font-size:12px"></i>
+                <span id="routeLabel" style="font-family:'Be Vietnam Pro',sans-serif;font-size:12px;color:#fff;font-weight:600">Vui lòng tìm kiếm để xem tuyến đường</span>
+              </div>
+            </div>
+          </div>
+  
+        </div><!-- end right col -->
+  
+      </div><!-- end grid -->
+    </div>
+  </section>
+  
+  <script>
+  function toggleStop(){
+    var w=document.getElementById('stopWrap');
+    var b=document.getElementById('btnStop');
+    if(w.style.display==='none'){w.style.display='block';b.textContent='- ẨN ĐIỂM DỪNG';}
+    else{w.style.display='none';b.textContent='+ THÊM ĐIỂM DỪNG (NẾU CÓ)';}
+  }
+  
+  var prices=[
+    {route:'Sài Gòn → Phan Thiết',car:'4 chỗ Sedan',price:'1,500,000',km:'200km'},
+    {route:'Sài Gòn → Phan Thiết',car:'7 chỗ Chuẩn',price:'2,000,000',km:'200km'},
+    {route:'Sài Gòn → Phan Thiết',car:'Limousine 9 chỗ',price:'2,800,000',km:'200km'},
+    {route:'Sài Gòn → Vũng Tàu',car:'4 chỗ Sedan',price:'850,000',km:'125km'},
+    {route:'Sài Gòn → Vũng Tàu',car:'7 chỗ Chuẩn',price:'1,100,000',km:'125km'},
+    {route:'Sài Gòn → Đà Lạt',car:'4 chỗ Sedan',price:'3,200,000',km:'310km'},
+    {route:'Sài Gòn → Đà Lạt',car:'7 chỗ Chuẩn',price:'4,200,000',km:'310km'},
+    {route:'Sài Gòn → Nha Trang',car:'4 chỗ Sedan',price:'4,100,000',km:'450km'},
+  ];
+  
+  function doSearch(){
+    var pickup=document.getElementById('pickup').value.trim();
+    var dropoff=document.getElementById('dropoff').value.trim();
+    if(pickup||dropoff){
+      document.getElementById('routeLabel').textContent=(pickup||'Điểm đón')+' → '+(dropoff||'Điểm đến');
+    }
+    var empty=document.getElementById('emptyState');
+    var cards=document.getElementById('resultCards');
+    var badge=document.getElementById('resultBadge');
+    var count=document.getElementById('resultCount');
+    var show=prices.slice(0,4);
+    cards.innerHTML='';
+    show.forEach(function(p){
+      cards.innerHTML+=
+        '<div style="background:#fafafa;border:1px solid #e8e8e8;border-radius:8px;padding:16px;transition:.2s" '+
+        'onmouseover="this.style.borderColor=\'#F5A623\';this.style.background=\'#fffbf0\'" onmouseout="this.style.borderColor=\'#e8e8e8\';this.style.background=\'#fafafa\'">'+ 
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">'+ 
+            '<i class="fa-solid fa-car-side" style="color:#F5A623;font-size:14px"></i>'+ 
+            '<span style="font-family:\'Oswald\',sans-serif;font-size:13px;font-weight:700;color:#111">'+p.car+'</span>'+ 
+          '</div>'+ 
+          '<div style="font-family:\'Be Vietnam Pro\',sans-serif;font-size:11px;color:#999;margin-bottom:6px">'+p.route+'</div>'+ 
+          '<div style="font-family:\'Oswald\',sans-serif;font-size:22px;font-weight:700;color:#F5A623;line-height:1">'+p.price+'đ</div>'+ 
+          '<div style="font-size:11px;color:#aaa;margin-top:2px">/ 1 chiều · '+p.km+'</div>'+ 
+          '<button onclick="alert(\'Liên hệ 0868.558.642 để đặt xe ngay!\')" '+
+          'style="margin-top:12px;width:100%;padding:9px;background:#111;color:#F5A623;font-family:\'Oswald\',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:none;border-radius:6px;cursor:pointer;transition:.2s" '+
+          'onmouseover="this.style.background=\'#F5A623\';this.style.color=\'#111\'" onmouseout="this.style.background=\'#111\';this.style.color=\'#F5A623\'">'+ 
+            'ĐẶT NGAY'+ 
+          '</button>'+ 
+        '</div>';
+    });
+    empty.style.display='none';
+    cards.style.display='grid';
+    badge.style.display='block';
+    count.textContent='Hiển thị '+show.length+' loại xe phù hợp';
+  }
+  </script>
+  
+  <style>
+  @media(max-width:900px){
+    section>div>div:last-child{grid-template-columns:1fr!important}
+  }
+  </style>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-top">
+    <!-- Brand -->
+    <div class="fbrand">
+      <div class="flogo-name"><span class="v">VIP</span> <span class="c">CAR</span></div>
+      <div class="flogo-sub">WITH DRIVER</div>
+      <ul class="faddr">
+        <li><i class="fa-solid fa-location-dot"></i><span>Địa Chỉ : 15/5A Ụ Ghe, Tam Phú, Thành Phố Thủ Đức, Thành Phố Hồ Chí Minh.</span></li>
+        <li><i class="fa-solid fa-location-dot"></i><span>Vũng Tàu : 16Bis Thùy Vân, Phường 2, TP Vũng Tàu.</span></li>
+        <li><i class="fa-solid fa-location-dot"></i><span>Cần Thơ : 2 Hùng Vương, Thới Bình, Ninh Kiều, Cần Thơ.</span></li>
+      </ul>
+      <div class="fhl">Nhà xe phục vụ Toàn Quốc vui lòng liên hệ Hotline</div>
+      <div class="fhot">
+        <i class="fa-solid fa-phone"></i>
+        <span style="font-size:13px;color:#ccc;font-weight:600">HOTLINE:</span>
+        <a href="tel:0868558642">0868.558.642</a>
+      </div>
+      <div class="femail"><i class="fa-solid fa-envelope"></i><span>Email: info@thuexerelientinh.com</span></div>
+      <div class="fbadges">
+        <img src="https://xevipcotaixe.com/wp-content/uploads/2021/04/logoBCT.png" alt="BCT">
+        <img src="https://xevipcotaixe.com/wp-content/uploads/2021/04/dmca.png" alt="DMCA">
+      </div>
+    </div>
+    <!-- Map -->
+    <div class="fwcol">
+      <div class="fwtitle">BẢN ĐỒ THUÊ XE RẺ LIÊN TỈNH</div>
+      <iframe class="fmap"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2997.8914629591645!2d106.7191516641041!3d10.827757497098647!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529e7360a9d75%3A0x95b8cff777c1c7ce!2zVGh1w6ogeGUgcuG6uyBMacOqbiBU4buJbmg!5e0!3m2!1svi!2sus!4v1687521920078!5m2!1svi!2sus"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!-- Fanpage -->
+    <div class="fwcol">
+      <div class="fwtitle">FANPAGE THUEXERELIENTINH</div>
+      <div class="ffan">
+        <div class="ffan-in">
+          <div class="ffan-hdr">
+            <div class="ffan-av">
+              <img src="https://xevipcotaixe.com/wp-content/uploads/2025/12/Logo-EN-Xoa-nen1.png" alt="Logo">
+            </div>
+            <div>
+              <div class="ffan-name">Thuexerelientinh.com</div>
+              <div class="ffan-flw">601 người theo dõi</div>
+            </div>
+            <i class="fa-brands fa-facebook ffan-fb"></i>
+          </div>
+          <div class="ffan-desc">Dịch vụ thuê xe rẻ liên tỉnh chuyên cung cấp xe 4-45 chỗ, có tài xế, giá tốt, an toàn, đưa đón tận nơi từ...</div>
+          <div class="ffan-tags"><i class="fa-solid fa-truck-fast" style="margin-right:5px;color:#777"></i>Du lịch và vận tải &nbsp;·&nbsp; <i class="fa-solid fa-phone" style="margin-right:5px;color:#777"></i>+84 868 558 642</div>
+          <a href="https://www.facebook.com/thuexerelientinh" target="_blank" class="ffan-btn"><i class="fa-brands fa-facebook"></i> Theo dõi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="fl">
+    <div class="fl-in">
+      <div class="fcol">
+        <h4>Về Chúng Tôi</h4>
+        <ul>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe 4 chỗ - Thuê xe du lịch 4 chỗ</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe 7 chỗ - Thuê xe du lịch 7 chỗ</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe 16 chỗ - Thuê xe du lịch 16 chỗ</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe 29 chỗ - Thuê xe du lịch 29 chỗ</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe 45 chỗ - Thuê xe du lịch 45 chỗ</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Chính sách quyền riêng tư</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Tuyến Miền Đông</h4>
+        <ul>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Tây Ninh - Mộc Bài</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Bình Phước - Đồng Xoài</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Bình Dương - Phú Giáo</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Đồng Nai - Định Quán</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Vũng Tàu - Thuê đi Bà Rịa</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Long Hải - Xuyên Mộc</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe Đi Hồ Tràm - Bình Châu</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Tuyến Miền Tây</h4>
+        <ul>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi An Giang - Châu Đốc</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Tiền Giang - Mỹ Tho - Cái Bè</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Kiêng Giang - Rạch Giá</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Hậu Giang</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Long An - Đức Hòa - Tân An</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe Trà Vinh - Duyên Hải</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Sóc Trăng - Kế Sách - Mỹ Tú</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Đồng Tháp - Cao Lãnh</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Vĩnh Long - Tam Bình - Trà Ôn</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Bạc Liêu - Đông Hải - Giá Rai</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Cà Mau - Cái Nước - Đầm Dơi</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Bến Tre - Giồng Trôm</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Tây Nguyên – Nam Trung Bộ</h4>
+        <ul>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Nha Trang - Phan Rang</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Phan Thiết - Mũi Né</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Đắk Lắk - Buôn Ma Thuột</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Đắk Nông - Gia Nghĩa</a></li>
+          <li><i class="fa-solid fa-star"></i><a href="#">Thuê xe đi Đà Lạt - Bảo Lộc</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="fbot">
+    <p>XEVIPCOTAIXE.COM © - 2026 &nbsp;<strong>XE VIP CÓ TÀI XẾ</strong></p>
+    <p class="stats">
+      <strong>Người Online</strong>: 0 &nbsp;|&nbsp;
+      <strong>Người Truy Cập</strong>: 1 &nbsp;|&nbsp;
+      <strong>Lượt Xem</strong>: 1 &nbsp;|&nbsp;
+      <strong>Truy Cập Hôm Qua</strong>: 5 &nbsp;|&nbsp;
+      <strong>Lượt Xem Hôm Qua</strong>: 14 &nbsp;|&nbsp;
+      <strong>Tổng Truy Cập</strong>: 114805 &nbsp;|&nbsp;
+      <strong>Tổng Lượt Xem</strong>: 226605
+    </p>
+  </div>
+</footer>
+
+<!-- FLOATING -->
+<div class="flt">
+  <a href="https://zalo.me/0868558642" class="flt-z" target="_blank">Z</a>
+  <a href="tel:0868558642" class="flt-cu">
+    <i class="fa-solid fa-comments"></i> <span>Contact us</span>
+  </a>
+</div>
+
+<script>
+function toggleMenu(){
+  var open=document.getElementById('mnav').classList.toggle('open');
+  document.getElementById('mnavOverlay').classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function toggleMnavDrop(e){
+  e.stopPropagation();
+  e.currentTarget.closest('.mnav-drop').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mnav').classList.remove('open');
+  document.getElementById('mnavOverlay').classList.remove('open');
+  document.body.style.overflow='';
+  document.querySelectorAll('.mnav-drop').forEach(function(d){d.classList.remove('open')});
+}
+document.querySelectorAll('#mnav a').forEach(function(a){a.addEventListener('click',closeMenu)});
+</script>
+</body>
+</html>
